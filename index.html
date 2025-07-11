@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Date Widget - London Time</title>
+  <title>Date Widget</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset all margins and paddings */
     html, body {
-      margin: 0; padding: 0px; height: 100%;
-      background: #1e374d;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #1e374d;
       font-family: 'Open Sans', sans-serif;
-      display: flex; justify-content: center; align-items: center;
+      overflow: hidden; /* prevent scrollbars */
+      display: flex;
+      justify-content: flex-end; /* Align content to right horizontally */
+      align-items: center;        /* Center vertically */
       color: white;
-      text-align: center;
+      text-align: right;
     }
+
     #fullDateDisplay {
-      font-size: 4vw;
+      font-size: 6vw; /* Responsive font size */
       font-weight: 700;
-      max-width: 90vw;
-      line-height: 1.2;
       user-select: none;
+      padding: 0 10px; /* slight right padding */
+      white-space: nowrap; /* no wrapping */
     }
   </style>
 </head>
