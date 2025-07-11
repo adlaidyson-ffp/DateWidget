@@ -6,27 +6,27 @@
   <title>Date Widget</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset all margins and paddings */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       background-color: #1e374d;
       font-family: 'Open Sans', sans-serif;
-      overflow: hidden; /* prevent scrollbars */
-      display: flex;
-      justify-content: flex-end; /* Align content to right horizontally */
-      align-items: center;        /* Center vertically */
       color: white;
       text-align: right;
+      overflow: hidden;
     }
-
+    body {
+      display: flex;
+      justify-content: flex-end; /* right align horizontally */
+      align-items: flex-start;   /* align to top vertically */
+    }
     #fullDateDisplay {
-      font-size: 6vw; /* Responsive font size */
+      font-size: 6vw;
       font-weight: 700;
+      padding: 5px 10px 0 0; /* small padding top and right */
+      white-space: nowrap;
       user-select: none;
-      padding: 0 10px; /* slight right padding */
-      white-space: nowrap; /* no wrapping */
     }
   </style>
 </head>
