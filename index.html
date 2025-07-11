@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Date Widget</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 2px;
+      height: 100%;
+      background-color: transparent;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #fullDateDisplay {
+      font-size: 4vw;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="fullDateDisplay">Loading date...</div>
+
+  <script>
+    function getOrdinalSuffix(day) {
+      if (day > 3 && day < 21) return 'th';
+      switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    }
+
+    function updateDate() {
+      const now = new Date();
+      const dayOfWeek = now.toLocaleDateString('en-GB', { weekday: 'long' });
+      const dayOfMonth = now.getDate();
+      const month = now.toLocaleDateString('en-GB', { month: 'long' });
+      const year = now.getFullYear();
+      const dateStr = `${dayOfWeek} ${dayOfMonth}${getOrdinalSuffix(dayOfMonth)} ${month} ${year}`;
+      document.getElementById('fullDateDisplay').textContent = dateStr;
+    }
+
+    updateDate();
+  </script>
+</body>
+</html>
