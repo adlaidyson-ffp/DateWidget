@@ -38,10 +38,7 @@
     }
 
     function updateDateLondon() {
-      // Create date in Europe/London timezone using Intl API
       const now = new Date();
-
-      // Use Intl.DateTimeFormat with timeZone option for London
       const londonDateStr = new Intl.DateTimeFormat('en-GB', {
         timeZone: 'Europe/London',
         weekday: 'long',
@@ -50,8 +47,6 @@
         year: 'numeric'
       }).format(now);
 
-      // Because Intl.DateTimeFormat can't add ordinals, parse day and add suffix manually
-      // Extract day number from the formatted string
       const dayMatch = londonDateStr.match(/\d+/);
       if (!dayMatch) {
         document.getElementById('fullDateDisplay').textContent = londonDateStr;
@@ -59,17 +54,12 @@
       }
       const dayNum = parseInt(dayMatch[0], 10);
       const ordinal = getOrdinalSuffix(dayNum);
-
-      // Replace day number with day + ordinal suffix
       const dateWithOrdinal = londonDateStr.replace(dayNum.toString(), dayNum + ordinal);
 
-      // Show date
       document.getElementById('fullDateDisplay').textContent = dateWithOrdinal;
     }
 
     updateDateLondon();
-
-    // Optional: update every hour in case page stays open across midnight London time
     setInterval(updateDateLondon, 60 * 60 * 1000);
   </script>
 </body>
