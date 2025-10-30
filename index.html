@@ -10,9 +10,11 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #1e374d;
+      /* 1. Set background to transparent */
+      background-color: transparent;
       font-family: 'Open Sans', sans-serif;
-      color: white;
+      /* 3. Set new font color */
+      color: #94fdf8;
       text-align: right;
       overflow: hidden;
     }
@@ -22,7 +24,8 @@
       align-items: flex-start;   /* align to top vertically */
     }
     #fullDateDisplay {
-      font-size: 6vw;
+      /* 2. Increased font size by 2pt */
+      font-size: calc(6vw + 2pt);
       font-weight: 700;
       padding: 5px 10px 0 0; /* small padding top and right */
       white-space: nowrap;
@@ -67,7 +70,7 @@
     }
 
     updateDateLondon();
-    setInterval(updateDateLondon, 60 * 60 * 1000);
+    setInterval(updateDateLondon, 60 * 60 * 1000); // Update every hour
   </script>
 </body>
 </html>
